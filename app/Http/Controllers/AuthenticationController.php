@@ -10,4 +10,6 @@ class AuthenticationController extends Controller
     public function agencyLoginPage(){
         return view('agency.auth.signin');
     }
+
+    
 }
