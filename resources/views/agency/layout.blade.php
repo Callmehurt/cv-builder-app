@@ -9,7 +9,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Phoenix  Free Admin Dashboard</title>
+    <title>@stack('title') | {{ config('app.name') }}</title>
 
     <!-- ===============================================-->
     <!--    Favicons-->
@@ -73,8 +73,8 @@
             <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
             <a class="navbar-brand me-1 me-sm-3" href="index.html">
               <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center"><img src="images/logo.png" alt="phoenix" width="27" />
-                  <p class="logo-text ms-2 d-none d-sm-block">Hurtlocker</p>
+                <div class="d-flex align-items-center"><img src="{{ asset('images/kingston.png') }}" alt="Kingston" height="48" />
+                  <p class="logo-text ms-2 d-none d-sm-block"></p>
                 </div>
               </div>
             </a>

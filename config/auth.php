@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'job-seeker' => [
+            'driver' => 'session',
+            'provider' => 'job-seekers',
+        ],
     ],
 
     /*
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+        'job-seekers' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\JobSeeker::class),
         ],
         // 'users' => [
         //     'driver' => 'database',

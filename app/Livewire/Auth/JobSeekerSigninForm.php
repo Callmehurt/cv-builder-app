@@ -5,8 +5,8 @@ namespace App\Livewire\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
 
-#/ notyf
-class AgencySignupForm extends Component
+
+class JobSeekerSigninForm extends Component
 {
 
     #[Rule('required|email')]
@@ -23,10 +23,10 @@ class AgencySignupForm extends Component
             'password' => $this->password
         ];
 
-        if (auth('web')->attempt($credentials)) {
+        if (auth('job-seeker')->attempt($credentials)) {
             request()->session()->regenerate();
 
-            return redirect()->intended('/agency/dashboard');
+            return redirect()->intended('/job-seeker/dashboard');
         }
 
         notyf()
@@ -39,6 +39,6 @@ class AgencySignupForm extends Component
 
     public function render()
     {
-        return view('livewire.auth.agency-signup-form');
+        return view('livewire.auth.job-seeker-signin-form');
     }
 }
