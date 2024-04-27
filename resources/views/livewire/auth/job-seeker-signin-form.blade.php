@@ -1,6 +1,6 @@
 <div class="row flex-center h-100 g-0 px-4 px-sm-0">
     <div class="col col-sm-6 col-lg-7 col-xl-6"><a class="d-flex flex-center text-decoration-none mb-4" href="">
-        <div class="d-flex align-items-center fw-bolder fs-3 d-inline-block"><img src="{{ asset('images/logo.png') }}" alt="phoenix" width="58"></div>
+        <div class="d-flex align-items-center fw-bolder fs-3 d-inline-block"><img src="{{ asset('images/kingston.png') }}" alt="phoenix" height="50"></div>
       </a>
       <div class="text-center mb-4">
         <h3 class="text-body-highlight">Sign In</h3>

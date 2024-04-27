@@ -5,7 +5,7 @@
     <h3 class="text-body-highlight">Sign Up</h3>
     <p class="text-body-tertiary">Create your account today</p>
   </div>
-  <form>
+  <form wire:submit.prevent="signupJobSeeker">
     <div class="mb-3 text-start">
         <label class="form-label" for="name">Name</label>
         <input class="form-control" wire:model="name" id="name" type="text" placeholder="Name">
@@ -41,7 +41,8 @@
         <div style="font-size: 75%;margin-top: 0.25em;color: #EC1F00;">{{ $message }}</div>
         @enderror
     </div>
-    <button class="btn btn-primary w-100 mb-3">Sign up</button>
+    <button wire:loading.remove class="btn btn-primary w-100 mb-3" type="submit">Sign up</button>
+    <button wire:loading class="btn btn-primary w-100 mb-3">Registering....</button>
     <div class="text-center"><a class="fs-9 fw-bold" href="{{ route('job-seeker.login.page') }}">Sign in to an existing account</a></div>
   </form>
 </div>

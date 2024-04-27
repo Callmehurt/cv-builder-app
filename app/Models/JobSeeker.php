@@ -18,4 +18,8 @@ class JobSeeker extends Authenticatable
         'address',
         'contact'
     ];
+
+    public function skills(){
+        return $this->hasMany(Skills::class, 'candidate_id');
+    }
 }

@@ -15,8 +15,20 @@ Route::get('/agency/signin', [AuthenticationController::class, 'agencyLoginPage'
 Route::get('/job-seeker/signin', [AuthenticationController::class, 'jobSeekerLoginPage'])->name('job-seeker.login.page');
 Route::get('/job-seeker/signup', [AuthenticationController::class, 'jobSeekerSignupPage'])->name('job-seeker.sinup.page');
 
+// Agency protected routes
 Route::prefix('agency')->group(function(){
 
     //Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('agency.dashboard');
+});
+
+//Job seeker protected routes
+Route::prefix('job-seeker')->middleware(['auth:job-seeker'])->group(function(){
+
+    //dashboard
+    Route::get('/dashboard', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'index'])->name('seeker.dashboard');
+    Route::get('/my/cv', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'myCvPage'])->name('seeker.myCvPage');
+
+
+    Route::post('/addSkill', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'addSkill'])->name('seeker.addSkill');
 });
