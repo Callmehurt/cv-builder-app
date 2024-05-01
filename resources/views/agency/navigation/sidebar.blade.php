@@ -27,7 +27,7 @@
             {{-- Job Seeker navigations --}}
             @if(auth('job-seeker')->check())
             <div class="nav-item-wrapper"><a class="nav-link label-1 {{ request()->routeIs('seeker.myCvPage') ? 'active' :  '' }}" href="{{ route('seeker.myCvPage') }}" role="button" data-bs-toggle="" aria-expanded="false">
-                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">My CV</span></span></div>
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="file-text"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">My CV</span></span></div>
               </a>
             </div>
             @endif

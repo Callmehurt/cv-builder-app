@@ -21,7 +21,12 @@ class DashboardController extends Controller
     }
 
     public function myCvPage(){
-        return view('job-seeker.pages.cv');
+        $skills = auth('job-seeker')->user()->skills;
+        $experiences = auth('job-seeker')->user()->experiences;
+        return view('job-seeker.pages.cv')->with([
+            'skills' => $skills,
+            'experiences' => $experiences
+        ]);
     }
 
     public function addSkill(Request $request){
@@ -34,17 +39,45 @@ class DashboardController extends Controller
         try{
 
             $data = [
-                'name' => $request->input('name')
+                'skill' => $request->input('name'),
+                'candidate_id' => auth('job-seeker')->id()
             ];
-
             $this->jobSeekerRepository->addSkill($data);
-
+            DB::commit();
+        
             return back()->with('success', 'Skill added successfully');
 
         }catch(\Exception $e){
             DB::rollBack();
             return back()->with('error', 'Something went wrong!');
         }
+    }
 
+
+    public function addExperience(Request $request){
+     
+        DB::beginTransaction();
+        try{
+
+            $data = [
+                'title' => $request->title,
+                'employment_type' => $request->employment_type,
+                'company_name' => $request->company_name,
+                'location' => $request->location,
+                'location_type' => $request->location_type,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'candidate_id' => auth('job-seeker')->id()
+            ];
+
+            $this->jobSeekerRepository->addExperience($data);
+            DB::commit();
+            return back()->with('success', 'Experience added successfully');
+
+        }catch(\Exception $e){
+            DB::rollBack();
+            dd($e);
+            return back()->with('error', 'Something went wrong!');
+        }
     }
 }

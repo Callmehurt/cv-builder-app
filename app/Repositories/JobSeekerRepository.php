@@ -26,5 +26,9 @@ class JobSeekerRepository{
         return $this->skill->create($data);
     }
 
+    public function addExperience($data){
+        return $this->experiences->create($data);
+    }
+
     
 }

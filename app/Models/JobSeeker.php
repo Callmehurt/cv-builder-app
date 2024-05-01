@@ -22,4 +22,8 @@ class JobSeeker extends Authenticatable
     public function skills(){
         return $this->hasMany(Skills::class, 'candidate_id');
     }
+
+    public function experiences(){
+        return $this->hasMany(Experiences::class, 'candidate_id');
+    }
 }

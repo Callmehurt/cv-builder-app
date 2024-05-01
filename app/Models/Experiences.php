@@ -17,5 +17,10 @@ class Experiences extends Model
         'location_type',
         'start_date',
         'end_date',
+        'candidate_id'
     ];
+
+    public function jobSeeker(){
+        return $this->belongsTo(JobSeeker::class, 'candidate_id');
+    }
 }

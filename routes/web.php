@@ -31,4 +31,5 @@ Route::prefix('job-seeker')->middleware(['auth:job-seeker'])->group(function(){
 
 
     Route::post('/addSkill', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'addSkill'])->name('seeker.addSkill');
+    Route::post('/addExperience', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'addExperience'])->name('seeker.addExperience');
 });
