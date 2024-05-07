@@ -19,6 +19,9 @@ class AuthenticationController extends Controller
     }
 
     public function jobSeekerLoginPage(){
+        if(auth('job-seeker')->check()){
+            return redirect()->route('seeker.dashboard');
+        }
         return view('job-seeker.auth.signin');
     }
     

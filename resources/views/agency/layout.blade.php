@@ -14,12 +14,11 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/kingston.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/kingston.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/kingston.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/kingston.png') }}">
     <link rel="manifest" href="images/manifest.json">
-    <meta name="msapplication-TileImage" content="images/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
     <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('js/simplebar.min.js') }}"></script>

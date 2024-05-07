@@ -17,6 +17,10 @@
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Dashboard</span></span></div>
               </a>
             </div>
+            <div class="nav-item-wrapper"><a class="nav-link label-1 {{ request()->routeIs('agency.jobSeekersPage') ? 'active' :  '' }}" href="{{ route('agency.jobSeekersPage') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="users"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Job Seekers</span></span></div>
+              </a>
+            </div>
             @else
               <div class="nav-item-wrapper"><a class="nav-link label-1 {{ request()->routeIs('seeker.dashboard') ? 'active' :  '' }}" href="{{ route('seeker.dashboard') }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Dashboard</span></span></div>

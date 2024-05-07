@@ -27,11 +27,19 @@
           <div class="overflow-auto scrollbar" style="height: auto;">
             <ul class="nav d-flex flex-column mb-2 pb-1">
               <li class="nav-item"><a class="nav-link px-3" href="#!"> <span class="me-2 text-body" data-feather="user"></span><span>Profile</span></a></li>
-              <li class="nav-item"><a class="nav-link px-3" href="#!"><span class="me-2 text-body" data-feather="pie-chart"></span>Dashboard</a></li>
+              <li class="nav-item"><a class="nav-link px-3" href="@if(auth('web')->check())
+                {{ route('agency.dashboard') }}
+                @else
+                {{ route('seeker.dashboard') }}
+                @endif"><span class="me-2 text-body" data-feather="pie-chart"></span>Dashboard</a></li>
             </ul>
           </div>
           <div class="card-footer p-0 border-top border-translucent">
-            <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100" href="#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
+            <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100" href="@if(auth('web')->check())
+              {{ route('agency.logout') }}
+              @else
+              {{ route('seeker.logout') }}
+              @endif"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
           </div>
         </div>
       </div>

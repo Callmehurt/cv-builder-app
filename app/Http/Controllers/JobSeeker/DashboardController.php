@@ -80,4 +80,10 @@ class DashboardController extends Controller
             return back()->with('error', 'Something went wrong!');
         }
     }
+
+    public function logout(){
+        auth('job-seeker')->logout();
+        return redirect()->route('job-seeker.login.page');
+    }
+
 }

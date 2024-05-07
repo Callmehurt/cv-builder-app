@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\Experiences;
 use App\Models\JobSeeker;
+use App\Models\Skills;
 use App\Repositories\JobSeekerRepository;
 use Livewire\Component;
 
@@ -42,7 +44,11 @@ class JobSeekerSignupForm extends Component
 
         try{
 
-            (new JobSeekerRepository(app(JobSeeker::class)))->create($details);
+            (new JobSeekerRepository(new JobSeeker, new Skills, new Experiences))->create($details);
+            notyf()
+            ->position('x', 'right')
+            ->position('y', 'top')
+            ->addSuccess('Signup process completed successfully. Please proceed to login');
             return redirect()->route('job-seeker.login.page');
 
         }catch(\Exception $e){

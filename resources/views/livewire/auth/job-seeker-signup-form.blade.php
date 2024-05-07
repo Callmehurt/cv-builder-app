@@ -36,7 +36,7 @@
     </div>
     <div class="mb-3 text-start">
         <label class="form-label" for="password">Password</label>
-        <input class="form-control" wire:model="password" id="password" type="text" placeholder="75896896987">
+        <input class="form-control" wire:model="password" id="password" type="password" placeholder="">
         @error('password')
         <div style="font-size: 75%;margin-top: 0.25em;color: #EC1F00;">{{ $message }}</div>
         @enderror
