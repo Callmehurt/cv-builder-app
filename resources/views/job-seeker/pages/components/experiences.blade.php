@@ -33,8 +33,10 @@
 @foreach ($experiences as $experience)
     <div class="experience-wrapper">
         <span class="title">{{ Str::ucfirst($experience->title) }}</span><br>
-        <span class="company_name">{{ Str::ucfirst($experience->title) }}</span> | <span class="employment_type">{{ Str::ucfirst($experience->employment_type) }}</span><br>
+        <span class="company_name">{{ Str::ucfirst($experience->company_name) }}</span> | <span class="employment_type">{{ Str::ucfirst($experience->employment_type) }}</span><br>
         <span class="start_date">{{ \Carbon\Carbon::parse($experience->start_date)->format('M Y') }}</span> - <span class="end_date">{{ \Carbon\Carbon::parse($experience->end_date)->format('M Y') }}</span><br>
         <span class="location">{{ Str::ucfirst($experience->location) }}</span> | <span class="location_type">{{ Str::ucfirst($experience->location_type) }}</span>
+
+        <a href="{{ route('seeker.editExperience', $experience->id) }}"><button class="btn btn-primary">Edit</button></a>
     </div>
 @endforeach

@@ -34,6 +34,10 @@ class JobSeekerRepository{
         return $this->experiences->create($data);
     }
 
+    public function updateExperience($exp_id, $data){
+        return $this->experiences->where('id', '=', $exp_id)->update($data);
+    }
+
     public function listCandidates(){
         return $this->jobSeekerModel->orderBy('created_at', 'desc')->get();
     }
@@ -76,6 +80,11 @@ class JobSeekerRepository{
         })->whereNotNull();
 
         return $candidates;
+    }
+
+
+    public function getExperience($exp_id){
+        return $this->experiences->find($exp_id);
     }
 
     

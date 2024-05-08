@@ -35,7 +35,18 @@ Route::prefix('job-seeker')->middleware(['auth:job-seeker'])->group(function(){
     Route::get('/logout', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'logout'])->name('seeker.logout');
 
 
+    //update personal details
     Route::post('/updatePersonalDetail', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'updatePersonalDetail'])->name('seeker.updatePersonalDetail');
+    
+    //add new skill
     Route::post('/addSkill', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'addSkill'])->name('seeker.addSkill');
+    
+    //add new experience
     Route::post('/addExperience', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'addExperience'])->name('seeker.addExperience');
+
+    //edit experience
+    Route::get('/edit-experience/{exp_id}', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'editExperience'])->name('seeker.editExperience');
+    
+    //update experience
+    Route::put('/update-experience/{exp_id}', [\App\Http\Controllers\JobSeeker\DashboardController::class, 'updateExperience'])->name('seeker.updateExperience');
 });

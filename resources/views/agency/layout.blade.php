@@ -85,7 +85,7 @@
 
             <!-- Search Result -->
             <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none" data-bs-dismiss="search"><button class="btn btn-link p-0" aria-label="Close"></button></div>
-            @livewire('navigation.search-result')
+            {{-- @livewire('navigation.search-result') --}}
           </div>
           
           @include('agency.navigation.nav')

@@ -107,6 +107,39 @@ class DashboardController extends Controller
         }
     }
 
+    public function editExperience($exp_id){
+        $experience = $this->jobSeekerRepository->getExperience($exp_id);
+        return view('job-seeker.pages.components.experience-edit', compact('experience'));
+    }
+
+    public function updateExperience(Request $request, $exp_id){
+        $data = [
+            'title' => $request->title,
+            'employment_type' => $request->employment_type,
+            'company_name' => $request->company_name,
+            'location' => $request->location,
+            'location_type' => $request->location_type,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+        ];
+
+        DB::beginTransaction();
+        try{
+
+            $this->jobSeekerRepository->updateExperience($exp_id, $data);
+            DB::commit();
+            return redirect()->route('seeker.myCvPage')->with('success', 'Experience updated successfully');
+
+        }catch(\Exception $e){
+            DB::rollBack();
+            dd($e);
+            return back()->with('error', 'Something went wrong!');
+        }
+
+
+
+    }
+
     public function logout(){
         auth('job-seeker')->logout();
         return redirect()->route('job-seeker.login.page');

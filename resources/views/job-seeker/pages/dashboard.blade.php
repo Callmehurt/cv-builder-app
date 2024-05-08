@@ -12,7 +12,7 @@
       <div class="col-12 col-xxl-6">
         <div class="mb-8">
           <h2 class="mb-2">Job Seeker Dashboard</h2>
-          <h5 class="text-body-tertiary fw-semibold">Here’s what’s going on at your business right now</h5>
+          <h5 class="text-body-tertiary fw-semibold">Welcome {{ auth('job-seeker')->user()->name }}</h5>
         </div>
     </div>
   </div>
