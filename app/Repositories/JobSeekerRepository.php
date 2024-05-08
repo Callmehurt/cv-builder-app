@@ -22,6 +22,10 @@ class JobSeekerRepository{
         return $this->jobSeekerModel->create($data);
     }
 
+    public function updatePersonalDetail($data){
+        return $this->jobSeekerModel->where('id', '=', auth('job-seeker')->id())->update($data);
+    }
+
     public function addSkill($data){
         return $this->skill->create($data);
     }

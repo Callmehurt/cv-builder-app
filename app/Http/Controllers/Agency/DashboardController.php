@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Agency;
 
+use App\Models\JobSeeker;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\JobSeekerRepository;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -43,6 +44,12 @@ class DashboardController extends Controller
             'skill' => $request->skill,
             'experience' => $request->experience
         ];
+
+        // $data = JobSeeker::with(['experiences' => function($q1){
+        //     $q1->where('title', 'LIKE', '%Node Backend Developer%');
+        // }])->first();
+        
+
         $filter['candidates'] = $this->jobSeekerRepository->filterCandidate($filter);
         return view('agency.pages.job-seekers', compact('filter'));
 

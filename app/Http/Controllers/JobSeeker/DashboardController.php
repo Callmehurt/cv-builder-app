@@ -29,6 +29,32 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function updatePersonalDetail(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'contact' => 'required',
+            'address' => 'required',
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'address' => $request->address,
+            'contact' => $request->contact,
+        ];
+
+        DB::beginTransaction();
+        try{
+
+            $this->jobSeekerRepository->updatePersonalDetail($data);
+            DB::commit();
+            return back()->with('success', 'Details updated successfully');
+
+        }catch(\Exception $e){
+            DB::rollBack();
+            return back()->with('error', 'Something went wrong!');
+        }
+    }
+
     public function addSkill(Request $request){
 
         $request->validate([

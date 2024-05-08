@@ -20,26 +20,36 @@
             </div>
             <div class="card-body p-0">
               <div class="p-4 code-to-copy">
-                <div class="mb-3">
-                  <label class="form-label" for="exampleFormControlInput">Name </label>
-                  <input class="form-control" id="exampleFormControlInput" type="text" placeholder="David Jones">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="exampleFormControlInput">Address </label>
-                  <input class="form-control" id="exampleFormControlInput" type="text" placeholder="London">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="exampleFormControlInput">Contact </label>
-                  <input class="form-control" id="exampleFormControlInput" type="text" placeholder="5896587458">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label" for="exampleFormControlInput">Email address </label>
-                  <input class="form-control" id="exampleFormControlInput" type="email" placeholder="name@example.com">
-                </div>
-                {{-- <div class="mb-0">
-                  <label class="form-label" for="exampleTextarea">Example Textarea </label>
-                  <textarea class="form-control" id="exampleTextarea" rows="3"> </textarea>
-                </div> --}}
+                <form action="{{ route('seeker.updatePersonalDetail') }}" method="POST">
+                  @csrf
+                  <div class="mb-3">
+                    <label class="form-label" for="">Name </label>
+                    <input class="form-control" name="name" value="{{ auth('job-seeker')->user()->name }}" type="text" placeholder="David Jones">
+                    @error('name')
+                    <div style="font-size: 75%;margin-top: 0.25em;color: #EC1F00;">{{ $message }}</div>
+                    @enderror 
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="">Address </label>
+                    <input class="form-control" name="address" value="{{ auth('job-seeker')->user()->address }}" type="text" placeholder="London">
+                    @error('address')
+                        <div style="font-size: 75%;margin-top: 0.25em;color: #EC1F00;">{{ $message }}</div>
+                        @enderror 
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="">Contact </label>
+                    <input class="form-control" name="contact" value="{{ auth('job-seeker')->user()->contact }}" type="text" placeholder="5896587458">
+                    @error('contact')
+                        <div style="font-size: 75%;margin-top: 0.25em;color: #EC1F00;">{{ $message }}</div>
+                        @enderror 
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="">Email address </label>
+                    <input class="form-control" value="{{ auth('job-seeker')->user()->email }}" type="email" placeholder="name@example.com" readonly disabled>
+                  </div>
+                  <button class="btn btn-primary mt-2" type="submit">Update</button>
+                </form>
               </div>
             </div>
         </div>

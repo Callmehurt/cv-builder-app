@@ -12,7 +12,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class JobSeekerTest extends TestCase
 {
-    use RefreshDatabase;
+    // use RefreshDatabase;
     
     /** @test */
     public function test_is_job_seeker_created(): void{
